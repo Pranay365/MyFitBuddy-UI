@@ -1,0 +1,26 @@
+@import "partials/variables";
+
+.header {
+  display: flex;
+
+  padding: 0 3rem;
+  gap: $heading-gap;
+  justify-content: space-between;
+  font-family: "Coiny", sans-serif;
+  align-items: center;
+  background-image: linear-gradient(to right bottom, #78716c 0%, #44403c 100%);
+}
+.header-item {
+  font-size: $heading-children;
+  transition: all 0.3s;
+  color: #fff;
+  &:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
+  }
+  & img {
+    height: 3rem;
+    width: 3rem;
+    align-self: baseline;
+  }
+}

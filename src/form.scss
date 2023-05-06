@@ -1,0 +1,25 @@
+.form-container {
+  position: relative;
+  height: 90vh;
+  .login,.signup,.workout {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 2rem;
+    align-items: center;
+    border: 2px solid red;
+    .label {
+      margin-bottom: 1rem;
+      align-self: flex-start;
+    }
+    input {
+      border: 0.5px solid gray;
+    }
+  }
+}

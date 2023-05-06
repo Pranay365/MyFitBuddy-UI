@@ -1,0 +1,18 @@
+@import "partials/variables";
+.logo {
+  font-family: "Coiny", cursive;
+  font-style: italic;
+  font-weight: 700;
+  color: #dc2626;
+  font-size: $heading-logo;
+  text-shadow: 9px 1px 3px rgba(230, 112, 112, 0.55);
+}
+.logo-icon {
+  height: 30px;
+  width: auto;
+  stroke: yellow;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
