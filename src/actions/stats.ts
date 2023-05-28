@@ -28,7 +28,7 @@ export default function fetchStats(
           return sum;
         }, 0);
         acc.yData.push(value / statForDay[key].length); 
-        console.log(acc)
+        console.log(acc);
         return acc;
       },
       {}

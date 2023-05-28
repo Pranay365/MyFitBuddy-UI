@@ -11,7 +11,7 @@ function Canvas({
   fetchStats: any;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [interval, setInterval] = useState({ startDate: "", endDate: "" });
+  const [interval, setInterval] = useState({ startDate: "", endDate: "",workout:"" });
   useCanvas(canvasRef, stats.stats.xData, stats.stats.yData);
   function handleChange(e: any) {
     setInterval((interval) => {
@@ -19,7 +19,7 @@ function Canvas({
     });
   }
   function handleClick(e: any) {
-    fetchStats("test", "bench", interval.startDate, interval.endDate);
+    fetchStats("test", interval.workout, interval.startDate, interval.endDate);
   }
   return (
     <div className="canvas-container">
@@ -44,6 +44,17 @@ function Canvas({
           value={interval.endDate}
           onChange={handleChange}
         />
+        <select
+          className="workout-combo"
+          name="workout"
+          value={interval.workout}
+          onChange={handleChange}
+        >
+          <option value="--SELECT--">SELECT</option>
+          <option value="pushup">PUSHUP</option>
+          <option value="pullup">PUSHUP</option>
+          <option value="squat">PUSHUP</option>
+          </select>
         <button className="btn-apply" onClick={handleClick}>
           Apply &rarr;
         </button>

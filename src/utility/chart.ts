@@ -10,7 +10,7 @@ export function useCanvas(canvas: any, xData: string[], yData: string[]) {
     setDimensions([height, width]);
   };
   useEffect(() => {
-    if (canvas.current) {
+    if (canvas.current && xData && yData) {
       const canvasEl = new Canvas(
         canvas.current,
         xData,
@@ -55,11 +55,9 @@ class Canvas {
       a > b ? 1 : -1
     );
     let maxY = uniqueYData[uniqueYData.length - 1];
-    let maxX = uniqueYData[uniqueXData.length - 1];
     let step = Math.floor(height/ +maxY);
     console.log("step and height is ",step,height,maxY);
     let intervalsx = width / (uniqueXData.length + 1);
-    let intervalsy = height / (uniqueYData.length + 1);
     //console.log(x, y, height, width, intervalsx, intervalsy);
     //@ts-ignore
     context.strokeStyle = "red";
@@ -83,7 +81,7 @@ class Canvas {
       context?.fillText(
         i,
         x - width * 0.05,
-        height - i * step+0.1*height
+        height - i * step+0.1*this.height
       );
     }
     context?.moveTo(x, height);
@@ -101,8 +99,8 @@ class Canvas {
     }
     context?.moveTo(x+intervalsx, 1.1*height- +this.yData[0]*step);
     for (let i = 1; i < this.xData.length; i++) {
-      context?.lineTo(x + (i + 1) * intervalsx, height - +this.yData[i] * step);
-      context?.moveTo(x + (i + 1) * intervalsx, height - +this.yData[i] * step);
+      context?.lineTo(x + (i + 1) * intervalsx, 1.1*height - +this.yData[i] * step);
+      context?.moveTo(x + (i + 1) * intervalsx, 1.1*height - +this.yData[i] * step);
     }
     context?.stroke();
   }

@@ -17,7 +17,7 @@ export function saveWorkouts(userid:string,workouts:any){
     return (dispatch:any)=>{
         console.log("saving workout..");
         dispatch({type:Constants.SAVING_WORKOUT});
-        let currentDate=new Date().toISOString();
+        let currentDate=new Date().toISOString().split("T")[0];
         fetch(`http://localhost:3000/workouts/${currentDate}/${userid}`,{
         method:"POST",    
         credentials:"include",
