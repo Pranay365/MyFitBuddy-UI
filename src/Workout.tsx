@@ -1,10 +1,11 @@
 import Input from "./Input";
-import "./form.scss";
-import "./workout.scss";
+import "./SCSS/workout.scss";
+import "./SCSS/form.scss";
 import { connect } from "react-redux";
 import Spinner from "./Spinner/Spinner";
-import { addToCart, saveWorkouts } from "./actions/workout";
+import { addToCart,  saveWorkouts } from "./actions/workout";
 import { handleChange } from "./actions/render";
+import WorkoutGroup from "./WorkoutGroup";
 function Workout({
   workouts = [],
   userid,
@@ -31,18 +32,22 @@ function Workout({
   return (
     <>
       {saving && <Spinner />}
-      <div className={saving ? "workout-list workout-list-blur" : "workout-list"}>
+      <div
+        className={saving ? "workout-list workout-list-blur" : "workout-list"}
+      >
         <div className="form-container">
           <form className="workout">
-            <label htmlFor="workoutName">Workout</label>
-            <Input
-              type="text"
-              value={workoutName}
+            <span className="form-header">Log your workouts</span>
+            <select
+              className="workoutName"
               name="workoutName"
-              id="workoutName"
               onChange={handleChange}
-            />
-            <label htmlFor="reps">Reps</label>
+            >
+              <option value="">--Select--</option>
+              <option value="pushup">PUSH UP</option>
+              <option value="pullup">PULL UP</option>
+              <option value="squat">SQUAT</option>
+            </select>
             <Input
               type="text"
               value={reps}
@@ -50,7 +55,6 @@ function Workout({
               id="reps"
               onChange={handleChange}
             />
-            <label htmlFor="weight">Weight</label>
             <Input
               type="text"
               value={weight}
@@ -61,7 +65,7 @@ function Workout({
             <button
               className="btn-add"
               onClick={(e) =>
-                addToCart(e, workoutName, workoutName, reps, weight)
+                addToCart(e,  workoutName, reps, weight)
               }
             >
               Add &rarr;
@@ -75,13 +79,11 @@ function Workout({
           </form>
         </div>
         <div className="workouts">
-          <ul className="workoutsInCart">
-            {workouts.map((workout: any) => (
-              <li id={workout.id}>
-                {workout.workoutName}-{workout.reps} - {workout.weight}
-              </li>
-            ))}
-          </ul>
+          {!workouts.length && (
+            <span className="form-header">Workouts appear here when added</span>
+          )}
+          {/*@ts-ignore*/}
+          <WorkoutGroup />
         </div>
       </div>
       {saved && <p>Workouts saved successfully</p>}
@@ -110,13 +112,12 @@ const mapDispatchToProps = (dispatch: any) => {
     handleChange: (e: any) => dispatch(handleChange(e)),
     addToCart: (
       e: any,
-      workoutId: string,
       workoutName: string,
       reps: string,
       weight: string
     ) => {
       e.preventDefault();
-      dispatch(addToCart({ workoutId, workoutName, reps, weight }));
+      dispatch(addToCart({ workoutName, reps, weight }));
     },
     saveWorkouts: (e: any, userid: string, workouts: any) => {
       e.preventDefault();

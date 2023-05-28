@@ -1,0 +1,15 @@
+.form-container {
+  position: relative;
+  .login-close {
+    position: absolute;
+    top: 13%;
+    right: 30%;
+    color: green;
+    font-size: 2.5rem;
+    font-family: "Coiny", sans-serif;
+    z-index: 9999;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

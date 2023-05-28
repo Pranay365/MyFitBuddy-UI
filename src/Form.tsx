@@ -1,15 +1,13 @@
 import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
-import {login} from "./actions/login";
-import {handleChange} from "./actions/render";
+import { login } from "./actions/login";
+import { handleChange } from "./actions/render";
 import Input from "./Input";
-import "./form.scss";
+import "./SCSS/form.scss";
 function Form(props: any) {
   return (
     <form className="signup" onSubmit={props.handleSubmit}>
-      <label className="label" htmlFor="username">
-        UserName
-      </label>
+      <p className="form-header">{props.type} To Fitnoter</p>
       <Input
         id="username"
         name="username"
@@ -19,21 +17,15 @@ function Form(props: any) {
       />
       {props.type == "signup" && (
         <>
-          <label className="label" htmlFor="id">
-            Userid
-          </label>
           <Input
             type="text"
             name="id"
             value={props.id}
             onChange={props.handleChange}
+      
           />
         </>
       )}
-
-      <label className="label" htmlFor="password">
-        Password
-      </label>
       <Input
         type="password"
         name="password"
@@ -53,7 +45,7 @@ function Form(props: any) {
           />
         </>
       )}
-      <button
+      <button className="btn btn-login"
         onClick={(e) => props.handleSubmit(e, props.username, props.password)}
       >
         {props.type == "signup" ? "Signup" : "Login"}

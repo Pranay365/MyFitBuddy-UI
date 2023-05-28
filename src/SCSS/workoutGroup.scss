@@ -1,0 +1,49 @@
+@import "./partials/variables";
+.group-container {
+  display: flex;
+  flex-direction: column;
+  &:first-child{
+      margin-top: 3rem;
+  }
+  .group-header {
+    display: flex;
+    gap: 2rem;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #444;
+    padding: 1rem;
+    text-transform: uppercase;
+    transform: translate(-1rem) scaleX(1.03);
+    .collapse:hover {
+      cursor: pointer;
+    }
+  }
+  .workouts {
+    display: none;
+    &-visible {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      list-style: none;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      background-color: #eee;
+    }
+    &:nth-child(odd) {
+      background-color: #c6cacf;
+    }
+    .workout-list-item {
+      font-weight: 700;
+      margin-right: 0.1rem;
+      @include gradient-text;
+      font-size: 1.3rem;
+      margin: 0;
+      .btn-edit {
+        height: 3rem;
+      }
+      .btn-edit:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

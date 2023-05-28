@@ -40,6 +40,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude:/node-modules/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {

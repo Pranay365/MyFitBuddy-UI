@@ -36,3 +36,6 @@ export const login = ({
   };
 };
 
+export const setWantsLogin=()=>{
+  return {type:Constants.USER_WANTS_LOGIN}
+}

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 const search = require("./search-outline.svg");
-import "./search.scss";
+import "./SCSS/search.scss";
 type ChildProps = {
   className: string;
 };

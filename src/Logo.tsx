@@ -1,5 +1,4 @@
-import React from "react";
-import "./logo.scss";
+import "./SCSS/logo.scss";
 const logo = require("./pencil-sharp.svg");
 function Logo() {
   return (

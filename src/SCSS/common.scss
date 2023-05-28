@@ -1,0 +1,19 @@
+@import "./partials/variables";
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+body{
+  max-height:600px
+}
+.page-description{
+  @include gradient-text;
+  text-transform: none;
+  -webkit-text-fill-color: #fff;;
+  font-family: "Roboto",sans-serif;
+  text-transform: none;
+}

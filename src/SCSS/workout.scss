@@ -1,0 +1,63 @@
+@import "./partials/variables";
+@import "./common.scss";
+.workout-list {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  .btn-add,
+  .btn-save {
+    width: 100%;
+    border: none;
+    background-color: $color-btn-main;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+  .btn-add:hover,
+  .btn-save:hover {
+    cursor: pointer;
+  }
+  &-blur {
+    opacity: 0.5;
+  }
+}
+.form-header {
+  @include gradient-text;
+}
+.workoutName {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.workout-header {
+  font-size: 3rem;
+  color: $color-main-feature;
+}
+.workout-container{
+  display: flex;
+  flex-direction: column;
+}
+.workout-body {
+  display: flex;
+  padding: 1rem;
+  margin: 0.5rem;
+  background-color: #eee;
+  justify-content: space-between;
+  &:nth-child(odd) {
+    background-color: #e2e8f0;
+  }
+  .workoutItem {
+    background-color: #eee;
+    font-weight: 700;
+    margin-right: 0.1rem;
+    @include gradient-text;
+    font-size: 1.3rem;
+    margin: 0;
+    .btn-edit {
+      height: 3rem;
+    }
+    .btn-edit:hover {
+      cursor: pointer;
+    }
+  }
+}
+.workoutsInCart {
+  padding: 2.5rem;
+}

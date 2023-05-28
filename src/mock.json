@@ -1,0 +1,4 @@
+{
+  "status": 200,
+  "body": "[{\"2023-04-26\":[{\"workoutId\":\"bench\",\"workoutName\":\"bench\",\"reps\":\"12\",\"weight\":\"12\"}]},{\"2023-04-27\":[{\"workoutId\":\"bench\",\"workoutName\":\"bench\",\"reps\":\"12\",\"weight\":\"12\"}]},{\"2023-04-28\":[{\"workoutId\":\"bench\",\"workoutName\":\"bench\",\"reps\":\"12\",\"weight\":\"12\"}]}]"
+}

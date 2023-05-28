@@ -5,7 +5,8 @@ function login(
     password: "",
     isLoggedIn: false,
     isLoginProgress: false,
-    isLoginFailed:false
+    isLoginFailed:false,
+    wantsToLogin:false
   },
   action: { type: string; [key: string]: string | number }
 ) {
@@ -21,6 +22,8 @@ function login(
         isLoggedIn: false,
         isLoginFailed:true,
       };
+    case Constants.USER_WANTS_LOGIN:
+       return {...state,wantsToLogin:!state.wantsToLogin}
     default:
       return state;
   }

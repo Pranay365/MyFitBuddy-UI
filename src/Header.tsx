@@ -4,7 +4,7 @@ import Articles from "./Articles";
 import Features from "./Features";
 import User from "./User";
 import Search from "./Search";
-import "./Header.scss";
+import "./SCSS/Header.scss";
 const Header: React.FC = () => {
   return (
     <header className="header">
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       <Articles className="header-item" />
       <Features className="header-item" />
       <Search className="header-item" />
-      <User className="header-item" />
+      <User  className="header-item" />
     </header>
   );
 };
