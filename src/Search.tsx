@@ -1,21 +1,19 @@
 import  { useState } from "react";
 const search = require("./search-outline.svg");
 import "./SCSS/search.scss";
-type ChildProps = {
-  className: string;
-};
-const Search: React.FC<ChildProps> = ({ className }) => {
+
+const Search= () => {
   const [textToSearch, settextToSearch] = useState<string>("");
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     settextToSearch(e.target.value);
   }
   return (
-    <div className={`${className} search`}>
+    <div className="header-item search">
       <input
         className="search-input"
         type="search"
         onChange={handleChange}
-        placeholder="Search for articles on workouts and nutrition"
+        placeholder="Search for articles"
       />
       <img className="search-image" src={search} />
     </div>

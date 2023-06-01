@@ -1,9 +1,10 @@
 @import "./partials/variables";
 .container {
-  width: 100vw;
+  width: 100%;
   height: auto;
   position: relative;
   @include background;
+
 }
 .home-content {
   position: relative;

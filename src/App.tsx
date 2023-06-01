@@ -12,11 +12,10 @@ const App = ({ wantsToLogin}: { wantsToLogin?: any}) => {
   return (
     <div className="container">
       <Header />
-
       <Routes>
         {
           <Route
-            path="/"
+            path="/workout"
             element={
               <div className="home-content">
                 <Home />
@@ -30,7 +29,7 @@ const App = ({ wantsToLogin}: { wantsToLogin?: any}) => {
         }
         {/* @ts-ignore
         <Route path="/" element={<Login />} /> */}
-        <Route path="/workout" element={<Workout />} />
+        <Route path="/" element={<Workout />} />
         <Route path="/workout_history" element={<WorkoutHistory />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

@@ -27,7 +27,7 @@ export default function fetchStats(
           sum += el.reps / el.weight;
           return sum;
         }, 0);
-        acc.yData.push(value / statForDay[key].length); 
+        acc.yData.push(Math.floor(value / statForDay[key].length)); 
         console.log(acc);
         return acc;
       },

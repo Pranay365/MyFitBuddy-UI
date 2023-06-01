@@ -11,6 +11,9 @@ export function useCanvas(canvas: any, xData: string[], yData: string[]) {
   };
   useEffect(() => {
     if (canvas.current && xData && yData) {
+
+      const context =canvas.current.getContext("2d");
+      context.clearRect(0, 0, canvas.current.width, canvas.current.height);
       const canvasEl = new Canvas(
         canvas.current,
         xData,
@@ -18,8 +21,9 @@ export function useCanvas(canvas: any, xData: string[], yData: string[]) {
         dimensions[0],
         dimensions[1]
       );
-      canvasEl.draw();
+      canvasEl.draw(context);
     }
+
   }, [dimensions, canvas.current, xData, yData]);
 }
 class Canvas {
@@ -28,6 +32,7 @@ class Canvas {
   yData: string[];
   height: number;
   width: number;
+  context:any;
   constructor(
     canvas: HTMLCanvasElement,
     xData: string[],
@@ -40,10 +45,8 @@ class Canvas {
     this.yData = yData;
     this.height = height;
     this.width = width;
-    this.draw();
   }
-  draw() {
-    const context = this.canvas.getContext("2d");
+  draw(context:any) {
     let height = Math.floor(0.9 * this.height);
     let y = Math.floor(0.1 * this.height);
     let width = Math.floor(0.9 * this.width);
@@ -67,10 +70,10 @@ class Canvas {
     context?.lineTo(width, height);
     context?.moveTo(x, height);
     context.lineCap="butt";
+    context.lineWidth=5;
     context?.stroke();
-    //@ts-ignore
-    context?.strokeStyle = "black";
     //draw Axis
+    context.font="14px Arial";
     for (let i = 1; i <=height/step; i++) {
       //console.log(x, height - intervalsy, uniqueYData[i]);
       context?.beginPath();
@@ -81,7 +84,7 @@ class Canvas {
       context?.fillText(
         i,
         x - width * 0.05,
-        height - i * step+0.1*this.height
+        height - i * step+0.1*height
       );
     }
     context?.moveTo(x, height);
@@ -94,10 +97,12 @@ class Canvas {
       context?.fillText(
         uniqueXData[i-1],
         x + i * intervalsx,
-        height + height * 0.05
+        height + height * 0.1
       );
     }
     context?.moveTo(x+intervalsx, 1.1*height- +this.yData[0]*step);
+    context.strokeStyle="#fff";
+    context.lineWidth=3;
     for (let i = 1; i < this.xData.length; i++) {
       context?.lineTo(x + (i + 1) * intervalsx, 1.1*height - +this.yData[i] * step);
       context?.moveTo(x + (i + 1) * intervalsx, 1.1*height - +this.yData[i] * step);

@@ -8,6 +8,11 @@
   font-family: "Coiny", sans-serif;
   align-items: center;
   background-image: linear-gradient(to right bottom, #78716c 0%, #44403c 100%);
+  &-cta{
+    display:flex;
+    justify-content: end;
+    gap:2rem;
+  }
 }
 .header-item {
   font-size: $heading-children;

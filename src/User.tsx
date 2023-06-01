@@ -5,15 +5,14 @@ import { connect } from "react-redux";
 import { setWantsLogin } from "./actions/login";
 const userIcon = require("./person-outline.svg");
 type ChildProps = {
-  className: string;
   isLoggedIn: boolean;
   openLoginDialog?: any;
 };
-const User: React.FC<ChildProps> = ({ className, isLoggedIn,openLoginDialog }) => {
+const User: React.FC<ChildProps> = ({  isLoggedIn,openLoginDialog }) => {
   const [show, setShow] = useState(false);
   return (
     <div
-      className={`${className} user`}
+      className={`header-item user`}
       onClick={(e) => setShow((show) => !show)}
     >
       {/*<Link to="/signup"><img src={userIcon}  /></Link>*/}
@@ -38,7 +37,7 @@ const User: React.FC<ChildProps> = ({ className, isLoggedIn,openLoginDialog }) =
         )}
         {isLoggedIn && (
           <li className="list-item">
-            <Link className="nav-link" to="/workout_history">
+            <Link className="nav-link" to="/workout">
               Workout tracker
             </Link>
           </li>
